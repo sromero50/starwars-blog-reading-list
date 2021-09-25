@@ -16,12 +16,12 @@ export const VehicleCard = () => {
 							<p className="card-text">Name: {item.name}</p>
 							<p className="card-text">Manufacturer: {item.manufacturer}</p>
 							<div className="row d-flex justify-content-between">
-								<Link href="#" className="btn btn-outline-primary col-6">
+								<Link to={"/vehicle/" + index} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
-								<Link href="#" className="btn btn-outline-warning col-2">
+								<button href="#" className="btn btn-outline-warning col-2">
 									<i className="far fa-heart" />
-								</Link>
+								</button>
 							</div>
 						</div>
 					</div>

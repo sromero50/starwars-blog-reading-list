@@ -16,12 +16,12 @@ export const PlanetCard = () => {
 							<p className="card-text">Population: {item.population}</p>
 							<p className="card-text">Terrain: {item.terrain}</p>
 							<div className="row d-flex justify-content-between align-items-end">
-								<Link href="#" className="btn btn-outline-primary col-6">
+								<Link to={"/planet/" + index} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
-								<Link href="#" className="btn btn-outline-warning col-2">
+								<button href="#" className="btn btn-outline-warning col-2">
 									<i className="far fa-heart" />
-								</Link>
+								</button>
 							</div>
 						</div>
 					</div>

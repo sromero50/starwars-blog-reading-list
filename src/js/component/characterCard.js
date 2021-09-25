@@ -17,12 +17,12 @@ export const CharacterCard = () => {
 							<p className="card-text">Hair color: {item.hair_color}</p>
 							<p className="card-text">Eye color: {item.eye_color}</p>
 							<div className="row d-flex justify-content-between">
-								<Link href="#" className="btn btn-outline-primary col-6">
+								<Link to={"/character/" + index} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
-								<Link href="#" className="btn btn-outline-warning col-2">
+								<button className="btn btn-outline-warning col-2">
 									<i className="far fa-heart" />
-								</Link>
+								</button>
 							</div>
 						</div>
 					</div>
