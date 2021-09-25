@@ -4,6 +4,12 @@ body{
     background-size: 100%;
 }
 
+.btn:focus{
+    background: #ffc107;
+    color: black;
+}
+
+
 
 ::-webkit-scrollbar {
     width: 20px;

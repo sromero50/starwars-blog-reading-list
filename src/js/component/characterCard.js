@@ -1,9 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 export const CharacterCard = () => {
 	const { store, actions } = useContext(Context);
+
+	const [addFav, setAddFav] = useState("");
+	const [toggle, setToggle] = useState(false);
+
+	const handleButton = () => {
+		setToggle(!toggle);
+	};
 
 	return (
 		<>
@@ -20,7 +27,9 @@ export const CharacterCard = () => {
 								<Link to={"/character/" + index} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
-								<button className="btn btn-outline-warning col-2">
+								<button
+									className="btn col-2 btn-outline-warning"
+									onClick={actions.addFavorite(item.name)}>
 									<i className="far fa-heart" />
 								</button>
 							</div>

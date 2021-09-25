@@ -49,15 +49,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			getFavorites: async () => {
-				try {
-					let response = await fetch("https://swapi.dev/api/people");
-					let responseBody = await response.json();
-					setStore({ characters: responseBody.results });
-				} catch (error) {
-					console.log(error);
-				}
+			addFavorite: character => {
+				console.log(character);
 			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
