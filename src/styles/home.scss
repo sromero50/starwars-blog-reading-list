@@ -1,0 +1,36 @@
+body{
+    background: url("../img/bg.jpg");
+    background-repeat:repeat-y;
+    background-size: 100%;
+}
+
+
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+}
+
+::-webkit-scrollbar-track:vertical {
+    -webkit-box-shadow: inset 0 0 6px rgba(65, 214, 52, 0.459); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+    background: white;
+    -webkit-box-shadow: inset 0 0 6px rgba(52, 155, 214, 0.459); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+
+    background:transparent url('../img/saber3.png') no-repeat;
+    background-size:contain;
+    border-radius: 10px;
+
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background:transparent url('../img/saber2.png') no-repeat;
+    background-size:100%; 
+
+}
