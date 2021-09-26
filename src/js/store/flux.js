@@ -25,6 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let response = await fetch("https://swapi.dev/api/people");
 					let responseBody = await response.json();
 					setStore({ characters: responseBody.results });
+
 					console.log(store.characters);
 				} catch (error) {
 					console.log(error);
@@ -51,9 +52,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			addFavorite: character => {
+			addFavorite: favorite => {
 				const store = getStore();
-				setStore({ favorites: [...store.favorites, { id: store.favorites.length, name: character.name }] });
+				setStore({ favorites: [...store.favorites, { id: store.favorites.length, name: favorite.name }] });
 			},
 
 			delFavorite: character => {

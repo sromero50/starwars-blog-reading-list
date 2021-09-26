@@ -15,11 +15,13 @@ export const VehicleCard = () => {
 							<h4 className="card-title">{item.name}</h4>
 							<p className="card-text">Name: {item.name}</p>
 							<p className="card-text">Manufacturer: {item.manufacturer}</p>
-							<div className="row d-flex justify-content-between">
+							<div className="row d-flex justify-content-between form-inline align-items-end">
 								<Link to={"/vehicle/" + index} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
-								<button href="#" className="btn btn-outline-warning col-2">
+								<button
+									className="btn btn-outline-warning col-2"
+									onClick={() => actions.addFavorite(item)}>
 									<i className="far fa-heart" />
 								</button>
 							</div>

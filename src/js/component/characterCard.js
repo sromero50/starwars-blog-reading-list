@@ -23,7 +23,7 @@ export const CharacterCard = () => {
 							<p className="card-text">Gender: {item.gender}</p>
 							<p className="card-text">Hair color: {item.hair_color}</p>
 							<p className="card-text">Eye color: {item.eye_color}</p>
-							<div className="row d-flex justify-content-between">
+							<div className="row d-flex justify-content-between form-inline align-items-end">
 								<Link to={"/character/" + index} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>

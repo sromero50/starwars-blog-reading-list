@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Logo from "../../img/logo.png";
 import { Context } from "../store/appContext";
 
@@ -7,6 +7,7 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const [dropdown, setDropdown] = useState(false);
 	const toggleOpen = () => setDropdown(!dropdown);
+	const params = useParams();
 
 	return (
 		<nav className="navbar navbar-dark bg-dark">
@@ -26,7 +27,7 @@ export const Navbar = () => {
 						aria-haspopup="true"
 						aria-expanded="false"
 						onClick={toggleOpen}>
-						Favorites
+						Favorites {store.favorites.length}
 					</button>
 
 					<div
