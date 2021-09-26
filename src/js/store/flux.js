@@ -16,14 +16,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			planets: [],
 			vehicles: [],
-			favourites: []
+			favorites: []
 		},
 		actions: {
 			getCharacters: async () => {
+				const store = getStore();
 				try {
 					let response = await fetch("https://swapi.dev/api/people");
 					let responseBody = await response.json();
 					setStore({ characters: responseBody.results });
+					console.log(store.characters);
 				} catch (error) {
 					console.log(error);
 				}
@@ -50,9 +52,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addFavorite: character => {
-				console.log(character);
+				const store = getStore();
+				setStore({ favorites: [...store.favorites, { id: store.favorites.length, name: character.name }] });
 			},
 
+			delFavorite: character => {
+				const store = getStore();
+				const newList = store.favorites.filter(item => item.name !== character);
+				setStore({ favorites: newList });
+			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

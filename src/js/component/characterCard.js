@@ -4,7 +4,7 @@ import { Context } from "../store/appContext";
 import { Link, useParams } from "react-router-dom";
 export const CharacterCard = () => {
 	const { store, actions } = useContext(Context);
-
+	const params = useParams();
 	const [addFav, setAddFav] = useState("");
 	const [toggle, setToggle] = useState(false);
 
@@ -29,7 +29,7 @@ export const CharacterCard = () => {
 								</Link>
 								<button
 									className="btn col-2 btn-outline-warning"
-									onClick={actions.addFavorite(item.name)}>
+									onClick={() => actions.addFavorite(item)}>
 									<i className="far fa-heart" />
 								</button>
 							</div>

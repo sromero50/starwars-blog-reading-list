@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
+import { Context } from "../store/appContext";
+
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	const [dropdown, setDropdown] = useState(false);
 	const toggleOpen = () => setDropdown(!dropdown);
+
 	return (
 		<nav className="navbar navbar-dark bg-dark">
 			<div className="container">
@@ -28,15 +32,22 @@ export const Navbar = () => {
 					<div
 						className={`dropleft dropdown-menu ${dropdown ? "show" : ""}`}
 						aria-labelledby="dropdownMenuLink">
-						<a className="dropdown-item" href="#">
-							Action
-						</a>
-						<a className="dropdown-item" href="#">
-							Another action
-						</a>
-						<a className="dropdown-item" href="#">
-							Something else here
-						</a>
+						<ul className="list-group">
+							{store.favorites.map(item => {
+								return (
+									<li key={item.id} className="dropdown-item list-group-item form-inline">
+										<Link
+											to={"/character/" + item.id}
+											style={{ textDecoration: "none", color: "black" }}>
+											{item.name}
+										</Link>
+										<span onClick={() => actions.delFavorite(item.name)}>
+											<i className="fas fa-times" />
+										</span>
+									</li>
+								);
+							})}
+						</ul>
 					</div>
 				</div>
 			</div>
