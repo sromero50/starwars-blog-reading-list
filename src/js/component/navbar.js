@@ -19,7 +19,7 @@ export const Navbar = () => {
 			<div className="nav-item dropdown m-auto">
 				<div className="dropdown show">
 					<button
-						className="btn btn-secondary dropdown-toggle"
+						className="btn btn-warning dropdown-toggle"
 						href="#"
 						role="button"
 						id="dropdownMenuLink"
