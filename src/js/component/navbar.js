@@ -34,16 +34,12 @@ export const Navbar = () => {
 						className={`dropleft dropdown-menu ${dropdown ? "show" : ""}`}
 						aria-labelledby="dropdownMenuLink">
 						<ul className="list-group">
-							{store.favorites.map(item => {
+							{store.favorites.map((item, index) => {
 								return (
-									<li key={item.id} className="dropdown-item list-group-item form-inline">
-										<Link
-											to={"/character/" + item.id}
-											style={{ textDecoration: "none", color: "black" }}>
-											{item.name}
-										</Link>
-										<span onClick={() => actions.delFavorite(item.name)}>
-											<i className="fas fa-times" />
+									<li key={index} className="dropdown-item list-group-item form-inline">
+										<Link to={item.link + item.id}>{item.name}</Link>
+										<span onClick={() => actions.delFavorite(item)}>
+											X{/* <i className="fas fa-times" />   */}
 										</span>
 									</li>
 								);

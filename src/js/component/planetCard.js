@@ -16,7 +16,7 @@ export const PlanetCard = () => {
 							<p className="card-text">Population: {item.population}</p>
 							<p className="card-text">Terrain: {item.terrain}</p>
 							<div className="row d-flex justify-content-between align-items-end form-inline">
-								<Link to={"/planet/" + index} className="btn btn-outline-primary col-6">
+								<Link to={"/planet/" + item.id} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
 								<button

@@ -16,7 +16,7 @@ export const VehicleCard = () => {
 							<p className="card-text">Name: {item.name}</p>
 							<p className="card-text">Manufacturer: {item.manufacturer}</p>
 							<div className="row d-flex justify-content-between form-inline align-items-end">
-								<Link to={"/vehicle/" + index} className="btn btn-outline-primary col-6">
+								<Link to={"/vehicle/" + item.id} className="btn btn-outline-primary col-6">
 									Learn more!
 								</Link>
 								<button
