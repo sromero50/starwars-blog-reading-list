@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const SingleVehicle = props => {
+export const SingleVehicle = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (

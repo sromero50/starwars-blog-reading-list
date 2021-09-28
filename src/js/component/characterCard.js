@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 export const CharacterCard = () => {
 	const { store, actions } = useContext(Context);
-	const params = useParams();
 
 	return (
 		<>

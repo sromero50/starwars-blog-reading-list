@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
 import { SingleCharacter } from "./views/singleCharacter";
 import { SinglePlanet } from "./views/singlePlanet";
 import { SingleVehicle } from "./views/singleVehicle";
@@ -28,9 +27,6 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
-						</Route>
 						<Route exact path="/character/:theid">
 							<SingleCharacter />
 						</Route>
@@ -44,6 +40,7 @@ const Layout = () => {
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
+					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

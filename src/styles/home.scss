@@ -9,6 +9,18 @@ body{
     color: black;
 }
 
+
+.list-group{
+    max-height: 100px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.list-group::-webkit-scrollbar{
+    display: none;
+}
+
 span {
 	height: 25px;
 	width: 0;
