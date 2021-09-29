@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../img/logo.png";
 import { Context } from "../store/appContext";
 import SearchBar from "./searchBar";
@@ -7,13 +7,14 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 	const [dropdown, setDropdown] = useState(false);
 	const toggleOpen = () => setDropdown(!dropdown);
-	const params = useParams();
 
 	let newList = [];
 
 	newList = newList.concat(store.characters);
 	newList = newList.concat(store.planets);
 	newList = newList.concat(store.vehicles);
+
+	localStorage.setItem("prueba", newList);
 
 	return (
 		<nav className="navbar navbar-dark bg-dark">

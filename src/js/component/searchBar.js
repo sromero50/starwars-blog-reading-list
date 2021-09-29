@@ -43,7 +43,7 @@ const SearchBar = ({ placeholder, data }) => {
 
 SearchBar.propTypes = {
 	placeholder: PropTypes.string,
-	data: PropTypes.object
+	data: PropTypes.array
 };
 
 export default SearchBar;

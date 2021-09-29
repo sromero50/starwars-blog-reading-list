@@ -72,6 +72,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
+			getLocal: () => {
+				const store = getStore();
+				localStorage.setItem("guardado", store.characters);
+			},
+
 			addFavorite: favorite => {
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, favorite] });
