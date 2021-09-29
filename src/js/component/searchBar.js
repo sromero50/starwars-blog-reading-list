@@ -17,9 +17,14 @@ const SearchBar = ({ placeholder, data }) => {
 
 	return (
 		<div>
-			<input type="text" className="form-control" placeholder={placeholder} onChange={handleFilter} />
+			<input
+				type="search"
+				className="form-control me-2 dropdown"
+				placeholder={placeholder}
+				onChange={handleFilter}
+			/>
 			{search.length != 0 && (
-				<ul className="list-group">
+				<ul className="list-group dropdown-menu searchBox">
 					{search.map((value, index) => {
 						return (
 							<li key={index} className="list-group-item">

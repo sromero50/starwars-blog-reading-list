@@ -19,7 +19,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 							return (item.id = index), (item.link = "/character/");
 						})
 					);
-					console.log(store.search);
 				} catch (error) {
 					console.log(error);
 				}
@@ -76,7 +75,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorite: favorite => {
 				const store = getStore();
 				setStore({ favorites: [...store.favorites, favorite] });
-				console.log(store.favorites);
 			},
 
 			delFavorite: delFav => {

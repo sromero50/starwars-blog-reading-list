@@ -10,14 +10,14 @@ body{
 }
 
 
-.list-group{
+.searchBox{
     max-height: 100px;
     margin-bottom: 10px;
     overflow: hidden;
     overflow-y: auto;
 }
 
-.list-group::-webkit-scrollbar{
+.searchBox::-webkit-scrollbar{
     display: none;
 }
 
