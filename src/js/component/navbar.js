@@ -14,8 +14,6 @@ export const Navbar = () => {
 	newList = newList.concat(store.planets);
 	newList = newList.concat(store.vehicles);
 
-	localStorage.setItem("prueba", newList);
-
 	return (
 		<nav className="navbar navbar-dark bg-dark">
 			<div className="container">
@@ -56,7 +54,7 @@ export const Navbar = () => {
 											{item.name}
 										</Link>
 										<span onClick={() => actions.delFavorite(item)}>
-											X{/* <i className="fas fa-times" />   */}
+											<i className="fas fa-times" />
 										</span>
 									</li>
 								);

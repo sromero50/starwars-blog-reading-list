@@ -8,67 +8,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 			search: []
 		},
 		actions: {
-			getSearch: async () => {
-				const store = getStore();
-				try {
-					let response = await fetch("https://swapi.dev/api/people/?search");
-					let responseBody = await response.json();
-					setStore({ search: responseBody.results });
-					setStore(
-						store.search.map((item, index) => {
-							return (item.id = index), (item.link = "/character/");
-						})
-					);
-				} catch (error) {
-					console.log(error);
-				}
-			},
-
 			getCharacters: async () => {
 				const store = getStore();
-				try {
-					let response = await fetch("https://swapi.dev/api/people");
-					let responseBody = await response.json();
-					setStore({ characters: responseBody.results });
-					setStore(
-						store.characters.map((item, index) => {
-							return (item.id = index), (item.link = "/character/");
-						})
-					);
-				} catch (error) {
-					console.log(error);
+				if (localStorage.getItem("characters") == null) {
+					try {
+						const response = await fetch("https://swapi.dev/api/people");
+						const responseBody = await response.json();
+						setStore({ characters: responseBody.results });
+						setStore(
+							store.characters.map((item, index) => {
+								return (item.id = index), (item.link = "/character/");
+							})
+						);
+						localStorage.setItem("characters", JSON.stringify(store.characters));
+					} catch (error) {
+						console.log(error);
+					}
+				} else {
+					setStore({ characters: JSON.parse(localStorage.getItem("characters")) });
 				}
 			},
 
 			getPlanets: async () => {
 				const store = getStore();
-				try {
-					let response = await fetch("https://swapi.dev/api/planets");
-					let responseBody = await response.json();
-					setStore({ planets: responseBody.results });
-					setStore(
-						store.planets.map((item, index) => {
-							return (item.id = index), (item.link = "/planet/");
-						})
-					);
-				} catch (error) {
-					console.log(error);
+				if (localStorage.getItem("planets") == null) {
+					try {
+						let response = await fetch("https://swapi.dev/api/planets");
+						let responseBody = await response.json();
+						setStore({ planets: responseBody.results });
+						setStore(
+							store.planets.map((item, index) => {
+								return (item.id = index), (item.link = "/planet/");
+							})
+						);
+						localStorage.setItem("planets", JSON.stringify(store.planets));
+					} catch (error) {
+						console.log(error);
+					}
+				} else {
+					setStore({ planets: JSON.parse(localStorage.getItem("planets")) });
 				}
 			},
 
 			getVehicles: async () => {
 				const store = getStore();
-				try {
-					let response = await fetch("https://swapi.dev/api/vehicles");
-					let responseBody = await response.json();
-					setStore({ vehicles: responseBody.results });
-					setStore(
-						store.vehicles.map((item, index) => {
-							return (item.id = index), (item.link = "/vehicle/");
-						})
-					);
-				} catch (error) {
-					console.log(error);
+				if (localStorage.getItem("vehicles") == null) {
+					try {
+						let response = await fetch("https://swapi.dev/api/vehicles");
+						let responseBody = await response.json();
+						setStore({ vehicles: responseBody.results });
+						setStore(
+							store.vehicles.map((item, index) => {
+								return (item.id = index), (item.link = "/vehicle/");
+							})
+						);
+						localStorage.setItem("vehicles", JSON.stringify(store.vehicles));
+					} catch (error) {
+						console.log(error);
+					}
+				} else {
+					setStore({ vehicles: JSON.parse(localStorage.getItem("vehicles")) });
 				}
 			},
 
