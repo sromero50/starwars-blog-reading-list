@@ -13,7 +13,7 @@ export const VehicleCard = () => {
 						<img src={"https://dummyimage.com/400x200/808080/000000"} className="card-img-top" alt="..." />
 						<div className="card-body">
 							<h4 className="card-title">{item.name}</h4>
-							<p className="card-text">Name: {item.name}</p>
+							<p className="card-text">Vehicle Class: {item.vehicle_class}</p>
 							<p className="card-text">Manufacturer: {item.manufacturer}</p>
 							<div className="row d-flex justify-content-between form-inline align-items-end">
 								<Link to={"/vehicle/" + item.id} className="btn btn-outline-primary col-6">
