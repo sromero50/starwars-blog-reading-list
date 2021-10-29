@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
-import { Home } from "./views/home";
-import { SingleCharacter } from "./views/singleCharacter";
-import { SinglePlanet } from "./views/singlePlanet";
-import { SingleVehicle } from "./views/singleVehicle";
+import { Redirect } from "react-router-dom";
+import { Home } from "./pages/home";
+import { SingleCharacter } from "./pages/singleCharacter";
+import { SinglePlanet } from "./pages/singlePlanet";
+import { SingleVehicle } from "./pages/singleVehicle";
+import Login from "./pages/login";
+import SignUp from "./pages/signup";
 
 import injectContext from "./store/appContext";
 
@@ -24,16 +26,23 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
+						<Redirect exact path="/home" to="/" />
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/character/:theid">
+						<Route path="/signup/">
+							<SignUp />
+						</Route>
+						<Route path="/login/">
+							<Login />
+						</Route>
+						<Route exact path="/character/:id">
 							<SingleCharacter />
 						</Route>
-						<Route exact path="/planet/:theid">
+						<Route exact path="/planet/:id">
 							<SinglePlanet />
 						</Route>
-						<Route exact path="/vehicle/:theid">
+						<Route exact path="/vehicle/:id">
 							<SingleVehicle />
 						</Route>
 						<Route>

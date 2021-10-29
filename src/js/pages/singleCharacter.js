@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const SingleVehicle = () => {
+export const SingleCharacter = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	console.log(params);
 	return (
 		<div className="container jumbotron bg-dark text-light py-3 row m-auto mt-3 form-inline">
 			<div className="col">
-				<h1 className="display-4 text-warning">{store.vehicles[params.theid].name}</h1>
+				<h1 className="display-4 text-warning">{store.characters[params.id - 1].name}</h1>
 				<h4>
 					{" "}
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed purus dapibus, tincidunt diam
@@ -29,29 +30,33 @@ export const SingleVehicle = () => {
 			<div className="container row">
 				<div className="col text-warning">
 					<h4>Name:</h4>
-					<h5>{store.vehicles[params.theid].name}</h5>
+					<h5>{store.characters[params.id - 1].name}</h5>
 				</div>
 				<div className="col text-warning">
-					<h4>Vehicle class:</h4>
-					<h5>{store.vehicles[params.theid].vehicle_class}</h5>
+					<h4>Birth Year:</h4>
+					<h5>{store.characters[params.id - 1].birth_year}</h5>
 				</div>
 				<div className="col text-warning">
-					<h4>Manufacturer:</h4>
-					<h5>{store.vehicles[params.theid].manufacturer}</h5>
+					<h4>Gender:</h4>
+					<h5>{store.characters[params.id - 1].gender}</h5>
 				</div>
 				<div className="col text-warning">
-					<h4>Cost in credits:</h4>
-					<h5>{store.vehicles[params.theid].cost_in_credits}</h5>
+					<h4>Height:</h4>
+					<h5>{store.characters[params.id - 1].height}</h5>
 				</div>
 				<div className="col text-warning">
-					<h4>Passengers:</h4>
-					<h5>{store.vehicles[params.theid].passengers}</h5>
+					<h4>Skin Color:</h4>
+					<h5>{store.characters[params.id - 1].skin_color}</h5>
+				</div>
+				<div className="col text-warning">
+					<h4>Eye Color:</h4>
+					<h5>{store.characters[params.id - 1].eye_color}</h5>
 				</div>
 			</div>
 		</div>
 	);
 };
 
-SingleVehicle.propTypes = {
+SingleCharacter.propTypes = {
 	match: PropTypes.object
 };

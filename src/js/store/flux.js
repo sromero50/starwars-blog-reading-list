@@ -12,15 +12,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				if (localStorage.getItem("characters") == null) {
 					try {
-						const response = await fetch("https://swapi.dev/api/people");
+						const response = await fetch("https://3000-amber-duck-rrkzulpn.ws-us18.gitpod.io/character");
 						const responseBody = await response.json();
-						setStore({ characters: responseBody.results });
+						setStore({ characters: responseBody });
 						setStore(
 							store.characters.map((item, index) => {
-								return (item.id = index), (item.link = "/character/");
+								return (item.link = "/character/");
 							})
 						);
 						localStorage.setItem("characters", JSON.stringify(store.characters));
+						console.log(responseBody);
 					} catch (error) {
 						console.log(error);
 					}
@@ -33,12 +34,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				if (localStorage.getItem("planets") == null) {
 					try {
-						let response = await fetch("https://swapi.dev/api/planets");
+						let response = await fetch("https://3000-amber-duck-rrkzulpn.ws-us18.gitpod.io/planet");
 						let responseBody = await response.json();
-						setStore({ planets: responseBody.results });
+						setStore({ planets: responseBody });
 						setStore(
 							store.planets.map((item, index) => {
-								return (item.id = index), (item.link = "/planet/");
+								return (item.link = "/planet/");
 							})
 						);
 						localStorage.setItem("planets", JSON.stringify(store.planets));
@@ -54,12 +55,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				if (localStorage.getItem("vehicles") == null) {
 					try {
-						let response = await fetch("https://swapi.dev/api/vehicles");
+						let response = await fetch("https://3000-amber-duck-rrkzulpn.ws-us18.gitpod.io/vehicle");
 						let responseBody = await response.json();
-						setStore({ vehicles: responseBody.results });
+						setStore({ vehicles: responseBody });
 						setStore(
 							store.vehicles.map((item, index) => {
-								return (item.id = index), (item.link = "/vehicle/");
+								return (item.link = "/vehicle/");
 							})
 						);
 						localStorage.setItem("vehicles", JSON.stringify(store.vehicles));
@@ -88,6 +89,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (newList.length === 0) {
 					setStore({ favorites: [] });
 				}
+			},
+
+			login: (username, password) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					username: username,
+					password: password
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3000-amber-duck-rrkzulpn.ws-us18.gitpod.io/login", requestOptions)
+					.then(response => response.json())
+					.then(result => localStorage.setItem("token", result.token))
+					.catch(error => console.log("error", error));
+			},
+
+			signup: (username, password) => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					username: username,
+					password: password,
+					is_active: true
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3000-amber-duck-rrkzulpn.ws-us18.gitpod.io/signup", requestOptions)
+					.then(response => response.text())
+					.then(result => console.log(result))
+					.catch(error => console.log("error", error));
 			}
 		}
 	};

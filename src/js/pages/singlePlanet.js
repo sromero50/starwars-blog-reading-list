@@ -6,10 +6,12 @@ import { Context } from "../store/appContext";
 export const SinglePlanet = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
+	console.log(params);
 	return (
 		<div className="container jumbotron bg-dark text-light py-3 row m-auto mt-3 form-inline">
 			<div className="col">
-				<h1 className="display-4 text-warning">{store.planets[params.theid].name}</h1>
+				<h1 className="display-4 text-warning">{store.planets[params.id - 1].name}</h1>
+				{console.log(store.planets[params.id - 1].name)}
 				<h4>
 					{" "}
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed purus dapibus, tincidunt diam
@@ -29,19 +31,19 @@ export const SinglePlanet = props => {
 			<div className="container row">
 				<div className="col text-warning">
 					<h4>Name:</h4>
-					<h5>{store.planets[params.theid].name}</h5>
+					<h5>{store.planets[params.id - 1].name}</h5>
 				</div>
 				<div className="col text-warning">
 					<h4>Climate:</h4>
-					<h5>{store.planets[params.theid].climate}</h5>
+					<h5>{store.planets[params.id - 1].climate}</h5>
 				</div>
 				<div className="col text-warning">
 					<h4>Terrain:</h4>
-					<h5>{store.planets[params.theid].terrain}</h5>
+					<h5>{store.planets[params.id - 1].terrain}</h5>
 				</div>
 				<div className="col text-warning">
 					<h4>Population:</h4>
-					<h5>{store.planets[params.theid].population}</h5>
+					<h5>{store.planets[params.id - 1].population}</h5>
 				</div>
 			</div>
 		</div>
