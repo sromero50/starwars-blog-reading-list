@@ -8,6 +8,7 @@ import { SinglePlanet } from "./pages/singlePlanet";
 import { SingleVehicle } from "./pages/singleVehicle";
 import Login from "./pages/login";
 import SignUp from "./pages/signup";
+import Profile from "./pages/profile";
 
 import injectContext from "./store/appContext";
 
@@ -29,6 +30,9 @@ const Layout = () => {
 						<Redirect exact path="/home" to="/" />
 						<Route exact path="/">
 							<Home />
+						</Route>
+						<Route path="/profile/">
+							<Profile />
 						</Route>
 						<Route path="/signup/">
 							<SignUp />

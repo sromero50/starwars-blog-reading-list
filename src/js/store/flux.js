@@ -134,6 +134,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.text())
 					.then(result => console.log(result))
 					.catch(error => console.log("error", error));
+			},
+
+			profile: () => {
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer " + localStorage.getItem("token"));
+				myHeaders.append("Content-Type", "application/json");
+
+				var requestOptions = {
+					method: "GET",
+					headers: myHeaders,
+					redirect: "follow"
+				};
+
+				fetch("https://3000-amber-duck-rrkzulpn.ws-us18.gitpod.io/profile", requestOptions)
+					.then(response => response.json())
+					.then(result => setStore({ user: result }))
+					.catch(error => console.log("error", error));
 			}
 		}
 	};
